@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "dev": "tsx watch src",
     "build": "tsc",
-    "start": "tsx watch src"
+    "start": "node dist"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.0.2",
@@ -12,6 +13,7 @@
     "@repo/typescript-config": "*",
     "@types/eslint": "^8.44.7",
     "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.11",
     "@types/node": "^17.0.12",
     "eslint": "^8.53.0",
     "tsx": "^4.7.0",
@@ -19,6 +21,7 @@
   },
   "dependencies": {
     "express": "^4.18.2",
-    "mongoose": "^8.0.3"
+    "mongoose": "^8.0.3",
+    "multer": "^1.4.5-lts.1"
   }
 }
