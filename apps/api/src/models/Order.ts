@@ -2,6 +2,7 @@ import { Schema, model } from 'mongoose';
 import { PRODUCT_MODEL_NAME } from './Product';
 
 export const ORDER_MODEL_NAME = 'Order';
+export const ORDER_STATUS_ENUM = ['WAITING', 'IN_PRODUCTION', 'DONE'];
 
 export const Order = model(
   ORDER_MODEL_NAME,
@@ -12,7 +13,7 @@ export const Order = model(
     },
     status: {
       type: Schema.Types.String,
-      enum: ['WAITING', 'IN_PRODUCTION', 'DONE'],
+      enum: ORDER_STATUS_ENUM,
       default: 'WAITING',
     },
     createdAt: {
