@@ -25,6 +25,7 @@ module.exports = {
   overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
   rules: {
     "prettier/prettier": "error",
-    "@typescript-eslint/strict-boolean-expressions": "off"
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/no-extraneous-class": "off",
   }
 }

@@ -1,7 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import path from 'node:path';
-import { router } from './router';
+import Middleware from './middleware';
+import router from './router';
 
 const PORT = 3001;
 
@@ -15,8 +16,10 @@ mongoose
     });
 
     server.use('/uploads', express.static(path.resolve(__dirname, '..', 'public')));
-    server.use(express.json());
+    server.use(Middleware.CORS);
+    server.use(Middleware.json);
     server.use(router);
+    server.use(Middleware.errorHandler);
   })
   .catch((e) => {
     console.error(e);
