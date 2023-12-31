@@ -10,8 +10,9 @@ import { createOrder } from './use-cases/orders/create-order';
 import { listOrders } from './use-cases/orders/list-orders';
 import { createProduct } from './use-cases/products/create-product';
 import { listProducts } from './use-cases/products/list-products';
+import asyncHandler from './utils/asyncHandler';
 
-export const router = Router();
+const router = Router();
 
 const upload = multer({
   storage: multer.diskStorage({
@@ -24,14 +25,19 @@ const upload = multer({
   }),
 });
 
-router.get('/categories', listCategories);
-router.post('/categories', createCategory);
-router.get('/categories/:id/products', listProductsByCategoryId);
+// Categories
+router.get('/categories', asyncHandler(listCategories));
+router.post('/categories', asyncHandler(createCategory));
+router.get('/categories/:id/products', asyncHandler(listProductsByCategoryId));
 
-router.get('/products', listProducts);
-router.post('/products', upload.single('image'), createProduct);
+// Products
+router.get('/products', asyncHandler(listProducts));
+router.post('/products', upload.single('image'), asyncHandler(createProduct));
 
-router.get('/orders', listOrders);
-router.post('/orders', createOrder);
-router.patch('/orders/:id', changeOrderStatus);
-router.delete('/orders/:id', cancelOrder);
+// Orders
+router.get('/orders', asyncHandler(listOrders));
+router.post('/orders', asyncHandler(createOrder));
+router.patch('/orders/:id', asyncHandler(changeOrderStatus));
+router.delete('/orders/:id', asyncHandler(cancelOrder));
+
+export default router;
