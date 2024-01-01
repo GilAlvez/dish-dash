@@ -1,9 +1,9 @@
 import { Schema, model } from 'mongoose';
-import { CATEGORY_MODEL_NAME } from './Category';
+import { CATEGORY_MODEL_NAME } from './category-model';
 
 export const PRODUCT_MODEL_NAME = 'Product';
 
-export const Product = model(
+export const ProductModel = model(
   PRODUCT_MODEL_NAME,
   new Schema({
     name: {

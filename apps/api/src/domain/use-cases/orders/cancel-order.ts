@@ -1,11 +1,11 @@
 import { type Request, type Response } from 'express';
-import { Order } from '../../models/Order';
+import { OrderModel } from '../../../infrastructure/models/order-model';
 
 export async function cancelOrder(req: Request, res: Response): Promise<void> {
   try {
     const { id } = req.params;
 
-    await Order.findByIdAndDelete(id);
+    await OrderModel.findByIdAndDelete(id);
 
     res.sendStatus(204);
   } catch (e) {

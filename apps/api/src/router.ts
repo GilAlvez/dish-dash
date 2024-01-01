@@ -1,16 +1,16 @@
 import { Router } from 'express';
 import multer from 'multer';
 import path from 'node:path';
-import { createCategory } from './use-cases/categories/create-category';
-import { listCategories } from './use-cases/categories/list-categories';
-import { listProductsByCategoryId } from './use-cases/categories/list-products-by-category-id';
-import { cancelOrder } from './use-cases/orders/cancel-order';
-import { changeOrderStatus } from './use-cases/orders/change-order-status';
-import { createOrder } from './use-cases/orders/create-order';
-import { listOrders } from './use-cases/orders/list-orders';
-import { createProduct } from './use-cases/products/create-product';
-import { listProducts } from './use-cases/products/list-products';
-import asyncHandler from './utils/asyncHandler';
+import asyncHandler from './presentation/utils/async-handler';
+import { createCategory } from './domain/use-cases/categories/create-category';
+import { listCategories } from './domain/use-cases/categories/list-categories';
+import { listProductsByCategoryId } from './domain/use-cases/categories/list-products-by-category-id';
+import { cancelOrder } from './domain/use-cases/orders/cancel-order';
+import { changeOrderStatus } from './domain/use-cases/orders/change-order-status';
+import { createOrder } from './domain/use-cases/orders/create-order';
+import { listOrders } from './domain/use-cases/orders/list-orders';
+import { createProduct } from './domain/use-cases/products/create-product';
+import { listProducts } from './domain/use-cases/products/list-products';
 
 const router = Router();
 

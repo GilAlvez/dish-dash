@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose';
 
 export const CATEGORY_MODEL_NAME = 'Category';
 
-export const Category = model(
+export const CategoryModel = model(
   CATEGORY_MODEL_NAME,
   new Schema({
     name: {

@@ -1,11 +1,11 @@
 import { type Request, type Response } from 'express';
-import { Order } from '../../models/Order';
+import { OrderModel } from '../../../infrastructure/models/order-model';
 
 export async function createOrder(req: Request, res: Response): Promise<void> {
   try {
     const { table, products } = req.body;
 
-    const order = await Order.create({ table, products });
+    const order = await OrderModel.create({ table, products });
 
     res.status(201).json(order);
   } catch (e) {

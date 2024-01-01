@@ -1,9 +1,9 @@
 import { type Request, type Response } from 'express';
-import { Product } from '../../models/Product';
+import { ProductModel } from '../../../infrastructure/models/product-model';
 
 export async function listProducts(req: Request, res: Response): Promise<void> {
   try {
-    const products = await Product.find();
+    const products = await ProductModel.find();
 
     res.json(products);
   } catch (e) {

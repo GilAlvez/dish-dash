@@ -1,10 +1,10 @@
 import { type Request, type Response } from 'express';
-import { Product } from '../../models/Product';
+import { ProductModel } from '../../../infrastructure/models/product-model';
 
 export async function listProductsByCategoryId(req: Request, res: Response): Promise<void> {
   try {
     const { id } = req.params;
-    const products = await Product.find().where('category').equals(id);
+    const products = await ProductModel.find().where('category').equals(id);
 
     res.json(products);
   } catch (e) {

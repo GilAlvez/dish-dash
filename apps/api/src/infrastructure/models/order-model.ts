@@ -1,10 +1,10 @@
 import { Schema, model } from 'mongoose';
-import { PRODUCT_MODEL_NAME } from './Product';
+import { PRODUCT_MODEL_NAME } from './product-model';
 
 export const ORDER_MODEL_NAME = 'Order';
 export const ORDER_STATUS_ENUM = ['WAITING', 'IN_PRODUCTION', 'DONE'];
 
-export const Order = model(
+export const OrderModel = model(
   ORDER_MODEL_NAME,
   new Schema({
     table: {

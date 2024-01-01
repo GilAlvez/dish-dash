@@ -1,5 +1,5 @@
 import { type Request, type Response } from 'express';
-import { ORDER_STATUS_ENUM, Order } from '../../models/Order';
+import { ORDER_STATUS_ENUM, OrderModel } from '../../../infrastructure/models/order-model';
 
 export async function changeOrderStatus(req: Request, res: Response): Promise<void> {
   try {
@@ -12,7 +12,7 @@ export async function changeOrderStatus(req: Request, res: Response): Promise<vo
       });
     }
 
-    await Order.findByIdAndUpdate(id, { status });
+    await OrderModel.findByIdAndUpdate(id, { status });
 
     res.sendStatus(204);
   } catch (e) {

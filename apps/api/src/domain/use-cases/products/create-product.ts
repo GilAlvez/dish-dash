@@ -1,5 +1,5 @@
 import { type Request, type Response } from 'express';
-import { Product } from '../../models/Product';
+import { ProductModel } from '../../../infrastructure/models/product-model';
 
 export async function createProduct(req: Request, res: Response): Promise<void> {
   try {
@@ -7,7 +7,7 @@ export async function createProduct(req: Request, res: Response): Promise<void> 
 
     const { name, description, price, category, ingredients } = req.body;
 
-    const product = await Product.create({
+    const product = await ProductModel.create({
       name,
       description,
       imageUrl,
