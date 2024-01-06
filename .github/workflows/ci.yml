@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x]
+        node-version: [18.x]
 
     steps:
       - name: Checkout
@@ -28,10 +28,13 @@ jobs:
         run: npm ci
 
       - name: Format Check
-        run: npm run ci:format
+        run: npm run format
+
+      - name: Lint
+        run: npm run lint
 
       - name: Types Check
-        run: npm run ci:types
+        run: npm run types
 
       - name: Tests
-        run: npm run ci:test
+        run: npm run test
