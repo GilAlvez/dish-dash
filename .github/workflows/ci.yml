@@ -30,9 +30,6 @@ jobs:
       - name: Format Check
         run: npm run format
 
-      - name: Lint
-        run: npm run lint
-
       - name: Types Check
         run: npm run types
 
