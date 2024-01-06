@@ -1,7 +1,7 @@
 import { type ZodSchema } from 'zod';
 import { type SchemaValidationErrorProp } from '../errors/schema-validation-error';
 
-export default function validateSchema<T = unknown>(
+export function validateSchema<T = unknown>(
   schema: ZodSchema,
   data: T
 ): SchemaValidationErrorProp | null {
