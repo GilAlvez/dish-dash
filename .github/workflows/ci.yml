@@ -1,0 +1,37 @@
+name: Dish Dash CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{matrix.node-version}}
+          cache: npm
+
+      - name: Dependencies Install
+        run: npm ci
+
+      - name: Format Check
+        run: npm run format
+
+      - name: Types Check
+        run: npm run types
+
+      - name: Tests
+        run: npm run test
