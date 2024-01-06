@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "tsx watch src",
     "build": "tsc",
-    "start": "node dist"
+    "start": "node dist",
+    "lint": "eslint . --max-warnings 0",
+    "types": "tsc --noEmit",
+    "test": "echo 'TESTS NOT IMPLEMENTED'"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.0.2",
